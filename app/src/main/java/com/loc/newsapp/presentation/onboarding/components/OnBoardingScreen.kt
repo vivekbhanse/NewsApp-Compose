@@ -26,7 +26,7 @@ import com.loc.newsapp.presentation.onboarding.pages
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 //@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun OnBoardingScreen( event: (OnBoardingEvent) -> Unit) {

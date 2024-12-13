@@ -1,11 +1,13 @@
 package com.loc.newsapp.di
 
 import android.app.Application
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 import com.loc.newsapp.data.manager.LocalUserManagerImpl
 import com.loc.newsapp.domain.manager.LocalUserManager
-import com.loc.newsapp.domain.usecases.AppSettingEntryUseCase
-import com.loc.newsapp.domain.usecases.ReadAppEntryUseCase
-import com.loc.newsapp.domain.usecases.SaveAppEntryUseCase
+import com.loc.newsapp.domain.usecases.app_entry.AppSettingEntryUseCase
+import com.loc.newsapp.domain.usecases.app_entry.ReadAppEntryUseCase
+import com.loc.newsapp.domain.usecases.app_entry.SaveAppEntryUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,4 +29,8 @@ object AppModule {
     fun provideAppSettingEntryUseCase(localUserManager: LocalUserManager) = AppSettingEntryUseCase(
         readAppEntryUseCase = ReadAppEntryUseCase(localUserManager = localUserManager), saveAppEntryUseCase = SaveAppEntryUseCase(localUserManager)
     )
+
+    @Provides
+    @Singleton
+    fun provideFireBaseFireStore()=Firebase.firestore
 }
