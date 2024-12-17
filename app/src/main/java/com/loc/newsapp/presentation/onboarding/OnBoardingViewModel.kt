@@ -16,7 +16,7 @@ class OnBoardingViewModel @Inject constructor(
 
     init {
         //saveFireBaseValue()
-        readValueFireStore()
+       // readValueFireStore()
     }
 
     fun onEvent(event: OnBoardingEvent) {

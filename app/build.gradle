@@ -22,6 +22,18 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        def properties = new Properties()
+        def localPropertiesFile = rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            properties.load(localPropertiesFile.newDataInputStream())
+        }
+
+        def apiKey = properties.getProperty("API_KEY", "DEFAULT_API_KEY") // Use a fallback value if the key is missing
+        buildConfigField "String", "API_KEY", "\"${apiKey}\""
+
+        def baseUrl = properties.getProperty("BASE_URL", "DEFAULT_BASE_URL") // Use a fallback value if the key is missing
+        buildConfigField "String", "BASE_URL", "\"${baseUrl}\""
     }
 
     buildTypes {
@@ -39,6 +51,7 @@ android {
     }
     buildFeatures {
         compose true
+        buildConfig true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.7"
@@ -62,6 +75,7 @@ dependencies {
     implementation 'androidx.compose.ui:ui-tooling-preview'
     implementation 'androidx.compose.material3:material3'
     implementation 'com.google.firebase:firebase-firestore:25.1.1'
+    implementation 'com.google.android.material:material:1.12.0'
 //    implementation 'com.google.firebase:firebase-database:21.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -87,6 +101,7 @@ dependencies {
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
 
     //Coil
     implementation("io.coil-kt:coil-compose:2.4.0")

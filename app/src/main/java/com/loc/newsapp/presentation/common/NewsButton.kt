@@ -1,4 +1,4 @@
-package com.loc.newsapp.presentation.onboarding.components
+package com.loc.newsapp.presentation.common
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
