@@ -11,6 +11,8 @@ import com.loc.newsapp.presentation.home.HomeScreen
 import com.loc.newsapp.presentation.home.HomeViewModel
 import com.loc.newsapp.presentation.onboarding.OnBoardingViewModel
 import com.loc.newsapp.presentation.onboarding.components.OnBoardingScreen
+import com.loc.newsapp.presentation.search.SearchScreen
+import com.loc.newsapp.presentation.search.SearchViewModel
 
 
 @Composable

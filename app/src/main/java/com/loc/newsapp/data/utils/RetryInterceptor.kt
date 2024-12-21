@@ -19,7 +19,10 @@ class RetryInterceptor(
                 // Break if response is successful or not retryable
                 if (response.isSuccessful || attempt >= maxRetries) {
                     return response
+                } else {
+                    response.close() // Close response before retrying
                 }
+
             } catch (e: IOException) {
                 // Retry only for IOExceptions (network issues)
                 if (attempt >= maxRetries) {

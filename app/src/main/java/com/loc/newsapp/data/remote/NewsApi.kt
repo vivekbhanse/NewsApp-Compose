@@ -16,7 +16,7 @@ interface NewsApi {
     ) : NewsResponse
 
 
-    @GET("")
+    @GET("everything")
     suspend fun searchNews(
         @Query("q") searchQuery: String,
         @Query("page")  page :Int,
