@@ -17,9 +17,12 @@ import com.loc.newsapp.domain.repository.NewsRepository
 import com.loc.newsapp.domain.usecases.app_entry.AppSettingEntryUseCase
 import com.loc.newsapp.domain.usecases.app_entry.ReadAppEntryUseCase
 import com.loc.newsapp.domain.usecases.app_entry.SaveAppEntryUseCase
+import com.loc.newsapp.domain.usecases.news.DeleteArticle
 import com.loc.newsapp.domain.usecases.news.GetNews
 import com.loc.newsapp.domain.usecases.news.NewsUseCases
 import com.loc.newsapp.domain.usecases.news.SearchNews
+import com.loc.newsapp.domain.usecases.news.SelectArticles
+import com.loc.newsapp.domain.usecases.news.UpsertArticle
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -85,9 +88,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNewsUseCases(newsRepository: NewsRepository): NewsUseCases = NewsUseCases(
-        GetNews(newsRepository), SearchNews(newsRepository)
-    )
+    fun provideNewsUseCases(newsRepository: NewsRepository, newsDao: NewsDao): NewsUseCases =
+        NewsUseCases(
+            GetNews(newsRepository),
+            SearchNews(newsRepository),
+            SelectArticles(newsDao),
+            UpsertArticle(newsDao),
+            DeleteArticle(newsDao)
+        )
 
     @Provides
     @Singleton
@@ -101,5 +109,5 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesNewsDao(newsDatabase: NewsDatabase):NewsDao = newsDatabase.newsDao
+    fun providesNewsDao(newsDatabase: NewsDatabase): NewsDao = newsDatabase.newsDao
 }
