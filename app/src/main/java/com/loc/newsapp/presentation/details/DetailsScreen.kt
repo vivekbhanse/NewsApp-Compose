@@ -36,7 +36,8 @@ import com.loc.newsapp.ui.theme.NewsAppTheme
 fun DetailsScreen(
     article: Article,
     event: (DetailsEvent) -> Unit,
-    navigateUp: () -> Unit
+    navigateUp: () -> Unit,
+   // sideEffect
 ) {
     val context = LocalContext.current
     Column(modifier = Modifier.fillMaxSize().statusBarsPadding()) {
@@ -59,7 +60,7 @@ fun DetailsScreen(
                 }
             },
             onBookMarkClick = {
-                event(DetailsEvent.SaveArticle)
+                event(DetailsEvent.UpsertDeleteArticle(article))
             },
             onBackClick = navigateUp
         )

@@ -1,6 +1,7 @@
 package com.loc.newsapp.presentation.common
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,14 +39,14 @@ import com.loc.newsapp.ui.theme.NewsAppTheme
 
 @Composable
 fun ArticleCard(
-    modifier: Modifier = Modifier, article: Article, onClick: @Composable () -> Unit,
+    modifier: Modifier = Modifier, article: Article,  onClick: (() -> Unit)? = null
 ) {
     val context = LocalContext.current
     Row(
-        modifier = modifier
-            .clip(MaterialTheme.shapes.medium)
-            .padding(ExtraSmallPadding)
-            .fillMaxWidth() // Let the row take full width
+        modifier = modifier.clickable { onClick?.invoke() },
+//            .clip(MaterialTheme.shapes.medium)
+//            .padding(ExtraSmallPadding)
+//            .fillMaxWidth() // Let the row take full width
     ) {
         AsyncImage(
             model = ImageRequest.Builder(context).data(article.urlToImage).build(),

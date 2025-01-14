@@ -21,6 +21,7 @@ import com.loc.newsapp.domain.usecases.news.DeleteArticle
 import com.loc.newsapp.domain.usecases.news.GetNews
 import com.loc.newsapp.domain.usecases.news.NewsUseCases
 import com.loc.newsapp.domain.usecases.news.SearchNews
+import com.loc.newsapp.domain.usecases.news.SelectArticle
 import com.loc.newsapp.domain.usecases.news.SelectArticles
 import com.loc.newsapp.domain.usecases.news.UpsertArticle
 import dagger.Module
@@ -94,7 +95,8 @@ object AppModule {
             SearchNews(newsRepository),
             SelectArticles(newsDao),
             UpsertArticle(newsDao),
-            DeleteArticle(newsDao)
+            DeleteArticle(newsDao),
+            SelectArticle(newsDao),
         )
 
     @Provides
