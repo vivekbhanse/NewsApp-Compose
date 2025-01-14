@@ -1,5 +1,6 @@
 package com.loc.newsapp.presentation.home
 
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.basicMarquee
@@ -29,6 +30,7 @@ import com.loc.newsapp.R
 import com.loc.newsapp.domain.models.Article
 import com.loc.newsapp.presentation.common.ArticlesList
 import com.loc.newsapp.presentation.common.SearchBar
+import com.loc.newsapp.presentation.details.DetailsScreen
 
 import com.loc.newsapp.presentation.navgraph.Route
 import com.loc.newsapp.presentation.onboarding.Dimens.MediumPadding1

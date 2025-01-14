@@ -18,7 +18,7 @@ import com.loc.newsapp.presentation.onboarding.Dimens.MediumPadding1
 fun ArticlesList(
     modifier: Modifier = Modifier,
     articles: LazyPagingItems<Article>,
-    onClick:(Article) -> Unit
+    onClick: @Composable (Article) -> Unit
 ) {
 
     val handlePagingResult = handlePagingResult(articles)

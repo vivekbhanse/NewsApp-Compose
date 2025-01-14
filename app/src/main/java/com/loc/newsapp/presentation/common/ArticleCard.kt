@@ -38,7 +38,7 @@ import com.loc.newsapp.ui.theme.NewsAppTheme
 
 @Composable
 fun ArticleCard(
-    modifier: Modifier = Modifier, article: Article, onClick: () -> Unit,
+    modifier: Modifier = Modifier, article: Article, onClick: @Composable () -> Unit,
 ) {
     val context = LocalContext.current
     Row(

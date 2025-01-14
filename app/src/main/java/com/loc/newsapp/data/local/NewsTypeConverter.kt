@@ -5,7 +5,7 @@ import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.loc.newsapp.domain.models.Source
 
-
+@ProvidedTypeConverter
 class NewsTypeConverter {
 
     @TypeConverter

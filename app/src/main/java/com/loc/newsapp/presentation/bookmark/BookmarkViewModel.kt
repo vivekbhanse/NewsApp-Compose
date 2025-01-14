@@ -17,7 +17,7 @@ class BookmarkViewModel @Inject constructor(
 
     private suspend fun getArticle(){
         newsUseCases.selectArticles().onEach {
-            _state.value = _state.value.copy(it)
+//            _state.value = _state.value.copy(it)
         }
     }
 }
